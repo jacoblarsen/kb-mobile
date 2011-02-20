@@ -28,14 +28,14 @@
 		<jar destfile="${lib.dir}/${ant.project.name}-simple.jar">
 		    <fileset dir="${class.dir}" />
 		    <manifest>
-				<attribute name="Main-Class" value="dk.kb.dis.alephtools.xserverGateway.Xserver"/>
+				<attribute name="Main-Class" value="dk.kb.dis.mobileGateway.webapp.Jetty"/>
 			</manifest>
 		</jar>
 	</target>
 	
 	<!--Run jetty from ant  -->
 	<target name="run" depends="jar" description="Run jetty from ant">
-		<java classname="dk.kb.dis.alephtools.xserverGateway.Xserver" classpathref="classpath" fork="true"/>
+		<java classname="dk.kb.dis.mobileGateway.webapp.Jetty" classpathref="classpath" fork="true"/>
 	</target>
 
 </project>
