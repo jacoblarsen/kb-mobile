@@ -11,9 +11,9 @@ import org.eclipse.jetty.server.handler.ContextHandler;
 
 
 // Jersey imports
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
 import com.sun.jersey.spi.container.servlet.ServletContainer;
 
 
@@ -26,7 +26,7 @@ public class Xserver
     @GET 
     // The Java method will produce content identified by the MIME Media
     // type "text/plain"
-    @Produces("text/plain")
+    @Produces(value=MediaType.TEXT_PLAIN)
     public String getClichedMessage() {
         // Return some cliched textual content
         return "Hello World";
@@ -36,6 +36,7 @@ public class Xserver
     public static void main(String[] args) throws Exception
     {
         ServletHolder sh = new ServletHolder(ServletContainer.class);
+        sh.setInitParameter("com.sun.jersey.config.property.resourceConfigClass", "com.sun.jersey.api.core.PackagesResourceConfig");
         sh.setInitParameter("com.sun.jersey.config.property.packages", "dk.kb.dis.alephtools.xserverGateway");
         Server server = new Server(8080);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
