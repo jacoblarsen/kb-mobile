@@ -2,9 +2,16 @@ KB-Mobile
 
 author jac@kb.dk
 
-aleph-gateway
+mobile-gateway
 -------------
-gateway that handles traffic to and from The Royal Librarys aleph x-server
+gateway that handles traffic to and from the services
+that are supposed to be expossed to the mobile services
+
+Class layout
++ dk.kb.dis.mobilGateway
+ + resources - Royal Library bindings, and call to services.   
+ + restapi - Layout of the REST api using Jersey (http://jersey.java.net/)
+ + webapp, Classes and config related to the menbedded Jetty server
 
 
 
